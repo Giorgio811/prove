@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">cambia</button>
+    <img id="img" />
+    <script>
+      const btn = document.getElementById("btn");
+      const img = document.getElementById("img");
+      async function data() {
+        const data = await fetch("https://dog.ceo/api/breeds/image/random");
+        const datajson = await data.json();
+        console.log(datajson.message);
+        img.src = datajson.message;
+      }
+      btn.addEventListener("click", data);
+    </script>
+  </body>
+</html>
